@@ -1,0 +1,58 @@
+<% include ../partials/head %>
+
+<div class="container">
+    <div id="top2">
+        <div class="col-md-9">
+            <div class="row" style="display:flex; flex-wrap: wrap;">
+                <% blogs.forEach(function(blog){ %>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="thumbnail no_pad">
+                           <img src="<%= blog.image %>">
+                           <div class="caption">
+                               <h3><a href="http://localhost:3000/blogs/<%= blog.title%>">
+                                <%= blog.title %></a></h3>
+                               <p><%- blog.content.substring(0, 50) %>...</p>
+                               <p id="author">
+                                   Author -
+                                   <span id="author_name"><%= blog.author.username %>
+                                   </span>
+                               </p>
+                           </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <p class="lead">Quick Links</p>
+            <div class="list-group no_border">
+                <li class="list-group-item none active_aside">Getting Started</li>
+                <li class="list-group-item none">Chat</li>
+                <li class="list-group-item none">Search</li>
+                <li class="list-group-item none">FAQ</li>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <section class="pagination">
+        <% if (currentPage != 1 && previousPage !== 1) { %>
+            <a href="/blogs/?page=1">1</a>
+        <% } %>
+
+        <% if (hasPreviousPage) { %>
+            <a href="/blogs/?page=<%= previousPage %>"><%= previousPage %></a>
+        <% } %>
+
+        <a class="active" href="/blogs/?page=<%= currentPage %>"><%= currentPage %></a>
+
+        <% if (hasNextPage) { %>
+            <a href="/blogs/?page=<%= nextPage %>"><%= nextPage %></a>
+        <% } %>
+
+        <% if (lastPage !== currentPage && nextPage !== lastPage) { %>
+            <a href="/blogs/?page=<%= lastPage %>"><%= lastPage %></a>
+        <% } %>
+</div>
+
+<% include ../partials/footer %>

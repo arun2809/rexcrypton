@@ -1,0 +1,22 @@
+<% include ../partials/head %>
+	<div class="container">
+		<div class="center">
+				<div class="caption_none">
+					<h2 id="title__heading"><%= blog.title %></h2>
+					<p>Published by - <%= blog.username %></p>
+					<p><%= blog.created %></p>
+					<img class="img-responsive imageWidth" src="<%= blog.image %>" />
+					<p class="padding"><%- blog.content %></p>
+				</div>
+			</div>
+			<div class="center comment">
+				<div class="text-right">
+					<p>
+						<a class="btn btn-success btn-md" href="/blogs/<%= blog._id %>/comments/new">Leave a reply</a>
+					</p>
+					<hr>
+				</div>
+		</div>
+	</div>
+
+<% include ../partials/footer %>

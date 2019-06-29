@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1>User profile</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3><%= user.firstName %>&nbsp;<span><%= user.lastName %></span></h3>
+            <p><em><%= user.email %></em></p>
+            <img class="profile_image" src="<%= user.avatar %>" alt="user profile image">
+            <h4>Withdrawal History</h4>
+            <hr>
+        </div>
+        <div class="col-md-6">
+            <h3>Account Overview</h3>
+            <p>Current Balance: $<%= user.earnings %></p>
+            <p>Min withdrawal $5</p>
+            <button class="btn btn-success btn-sm">Withdraw</button>
+            <hr>
+            <p>Payment Details:</p>
+            <hr>
+            <p>Paypal ID: </p>
+            <!-- <b><b>Bank Details</b></p> -->
+            <!-- <p>Bank Name: </p> -->
+            <p>Bank Account Number: </p>
+            <!-- <p>Account Name: </p> -->
+            <hr>
+            <h3>Wallet Info</h3>
+            <p>Bitcoin Address: </p>
+            <br />
+            <p><em>Past withdrawals to your wallet and Bank will be displayed here once you make a few :)</em></p>
+            <p>Withdrawal button becomes active when you hit min amount.</p>
+            <!-- <p>Ethereum Address: </p> -->
+            <!-- <p>Bitcoin Cash Address: </p> -->
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
